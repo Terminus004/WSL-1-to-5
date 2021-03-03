@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Table</title>
+    <style>
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        table {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        td,
+        th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Number(n)</th>
+                    <th>Squre(n^2)</th>
+                    <th>Cube(n^3)</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h2>Name: Jyoti Prakash Mohanta</h2>
+        <h2>Reg No: 1801227230</h2>
+
+    </div>
+
+
+    <script>
+        var HTML = "";
+        for (i = 1; i <= 10; i++) {
+            HTML += "<tr>"
+            HTML += "<td>" + i + "</td>";
+            HTML += "<td>" + (i * i) + "</td>";
+            HTML += "<td>" + (i * i * i) + "</td>";
+            HTML += "</tr>";
+
+        }
+        document.getElementById("table-body").innerHTML = HTML;
+    </script>
+</body>
+
+</html>

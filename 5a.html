@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text growing and shrinking</title>
+</head>
+
+<body style="background-color: beige;">
+    <div style="display: flex;align-items: center;justify-content: center;">
+        <h1 id="name" style="font-size: 3rem;">Jyoti Prakash Mohanta</h1>
+    </div>
+    <div style="display: flex;align-items: center;justify-content: space-evenly;margin-top: 100px;">
+        <button
+            style="padding: 10px 20px;background-color: aqua;border: 1px solid #ddd;color: white;font-size: larger;cursor: pointer;"
+            onclick="growing()">Growing</button>
+        <button
+            style="padding: 10px 20px;background-color: aqua;border: 1px solid #ddd;color: white;font-size: larger;cursor: pointer;"
+            onclick="shrinking()">Shrinking</button>
+    </div>
+
+    <script>
+        function growing() {
+            var text = document.getElementById("name");
+            text.style.transform = "scale(3)";
+            text.style.color = "blue";
+        }
+        function shrinking() {
+            var text = document.getElementById("name");
+            text.style.transform = "scale(0.7)";
+            text.style.color = "green";
+        }
+    </script>
+
+</body>
+
+</html>

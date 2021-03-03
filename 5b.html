@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <!-- <h1>Example of Window Object</h1> -->
+
+    <input type="button" value="START" onclick="START()">
+    <input type="button" value="STOP" onclick="STOP()">
+
+    <script>
+        color = new Array("red", "green", "blue", "yellow", "pink", "violet", "maroon");
+        i = 0
+        window.defaultStatus = "Example of Window Object";
+        function COLOR() {
+            if (i > 6) {
+                i = 0;
+                document.bgColor = c[i]
+                i++
+            } else {
+                document.bgColor = c[i]
+                i++
+            }
+        }
+        function START() {
+            r = setInterval("COLOR()", 1000)
+        }
+        function STOP() {
+            clearInterval(r)
+        }
+    </script>
+</body>
+
+</html>

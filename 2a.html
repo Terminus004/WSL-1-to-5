@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Elements</title>
+    <style>
+        .form-body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(174, 250, 250);
+        }
+
+        .form {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: blanchedalmond;
+        }
+
+        label {
+            margin: 5px 0px;
+            margin-right: 15px;
+        }
+
+        .input {
+            margin: 15px 0px;
+        }
+
+        #submit {
+            background-color: cornflowerblue;
+            padding: 5px 20px;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="form-body">
+        <div class="form">
+            <form action="">
+                <div class="input">
+                    <label for="">Name</label><input type="text" name="name" id="">
+
+                </div>
+                <div class="input">
+                    <label for="">Email</label><input type="email" name="email" id="">
+
+                </div>
+                <div class="input">
+                    <label for="">Password</label><input type="password" name="password" id="">
+
+                </div>
+                <div class="input">
+                    <label for="">Age</label><input type="number" name="age" id="">
+
+                </div>
+                <div class="input">
+                    <label for="">Date of Birth</label><input type="date" name="bithdate" id="">
+
+                </div>
+                <div class="input">
+                    <label for="">Age</label><input type="range" name="age" id="">
+
+                </div>
+                <div class="input">
+                    <label for="">Baranch</label>
+                    <select name="branch" id="">
+                        <option value="CSE">CSE</option>
+                        <option value="Civil">Civil</option>
+                        <option value="Mechanical">Mechanical</option>
+                        <option value="CSIT">CSIT</option>
+                    </select>
+
+                </div>
+                <div class="input">
+                    <label for="">Favorite Color</label><input type="color" name="color" id="">
+                </div>
+                <div class="input">
+                    <label for="">Enter your message</label>
+                    <textarea name="message" id="" cols="30" rows="10"></textarea>
+                </div>
+                <div class="input">
+                    <label for="">Gender</label><span>Male</span><input type="radio" name="male"
+                        id=""><span>Female</span><input type="radio" name="female" id="">
+                </div>
+                <div class="input">
+                    <input type="submit" value="Submit" id="submit">
+                </div>
+                <p style="font-size: 20px;">Name: Jyoti Prakash Mohanta</p>
+                <p style="font-size: 20px;">Reg No: 1801227230</p>
+            </form>
+
+        </div>
+
+
+    </section>
+
+
+</body>
+
+</html>

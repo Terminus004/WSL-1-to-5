@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Calculator</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        ::placeholder {
+            color: red;
+            opacity: 1;
+        }
+
+        body {
+            background: #F6F6F6;
+        }
+
+        .calculator {
+            max-width: 400px;
+            margin: 0 auto;
+            border: 2px solid #111;
+            border-radius: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            flex: 0 1 60%;
+            min-width: 400px;
+            color: #F6F6F6;
+        }
+
+        #calc-buttons,
+        .calc-buttons {
+            background-color: gray;
+            border: none;
+            color: white;
+            padding-left: 60px;
+            padding-top: 15px;
+            text-decoration: none;
+            display: inline-flex;
+            font-size: 16px;
+            margin: 1px;
+            cursor: pointer;
+            width: 125px;
+            height: 50px;
+            border-radius: 6px;
+        }
+
+        .calc-buttons-equal {
+            background-color: orange;
+            border: none;
+            color: white;
+            padding-left: 190px;
+            padding-top: 15px;
+            text-decoration: none;
+            display: inline-flex;
+            font-size: 16px;
+            margin: 1px;
+            cursor: pointer;
+            width: 388px;
+            height: 50px;
+            border-radius: 6px;
+        }
+
+        #textBox1 input {
+            background: none;
+            border: none;
+            box-shadow: none;
+            padding: 10px;
+            width: 100%;
+            border-bottom: 2px solid #111;
+            color: #333;
+            text-align: right;
+            font-size: 40px;
+            border-radius: 0;
+        }
+
+        .calc-clr {
+            background-color: rgb(218, 40, 40);
+        }
+
+        .calc-back {
+            background-color: rgb(31, 202, 46);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <div id="textBox1">
+            <input type="text" id="textBox" placeholder="0" />
+        </div>
+        <div class="buttons">
+            <button class="calc-buttons" onclick="disPlay('1')" value="1">1</button>
+            <button class="calc-buttons" onclick="disPlay('2')" value="2">2</button>
+            <button class="calc-buttons" onclick="disPlay('3')" value="3">3</button>
+            <button class="calc-buttons" onclick="disPlay('4')" value="4">4</button>
+            <button class="calc-buttons" onclick="disPlay('5')" value="5">5</button>
+            <button class="calc-buttons" onclick="disPlay('6')" value="6">6</button>
+            <button class="calc-buttons" onclick="disPlay('7')" value="7">7</button>
+            <button class="calc-buttons" onclick="disPlay('8')" value="8">8</button>
+            <button class="calc-buttons" onclick="disPlay('9')" value="9">9</button>
+            <button class="calc-buttons" onclick="disPlay('0')" value="0">0</button>
+            <button class="calc-buttons" onclick="disPlay('+')" value="+">+</button>
+            <button class="calc-buttons" onclick="disPlay('-')" value="-">-</button>
+            <button class="calc-buttons" onclick="disPlay('*')" value="*">*</button>
+            <button class="calc-buttons" onclick="disPlay('/')" value="/">/</button>
+            <button class="calc-buttons" onclick="disPlay('%')" value="%">%</button>
+            <button class="calc-buttons calc-clr" onclick="clr()" value="clear">C</button>
+            <button class="calc-buttons" onclick="disPlay('.')" value=".">.</button>
+            <button class="calc-buttons calc-back" onclick="backSpace()" value="B">B</button>
+            <button class="calc-buttons-equal" onclick="result()" value="=">=</button>
+        </div>
+    </div>
+    <div>
+        <h2>Name: Jyoti Prakash Mohanta</h2>
+        <h2>Reg No: 1801227230</h2>
+
+    </div>
+    <script>
+        var res = "";
+        function disPlay(x) {
+            nan = document.getElementById("textBox").value;
+            if (nan === "NaN" || nan === "Infinity" || nan === "undefined" || nan === "-Infinity") {   // delete Nan,infinity,undefined after entering the numbers.
+                document.getElementById("textBox").value = "";
+            }
+            if (res && (x >= 0 || x <= 0)) {
+                res = false;
+                document.getElementById("textBox").value = "";
+                document.getElementById("textBox").value += x;
+
+            } else {
+                document.getElementById("textBox").value += x;
+                res = false;
+                var y = [];
+                y = document.getElementById("textBox").value;
+                p = y.length;
+                if ((y[p - 2] === "*" || y[p - 2] === "/" || y[p - 2] === "%" || y[p - 2] === "+" || y[p - 2] === "-" || y[p - 2] === ".") && (x === "*" || x === "/" || x === "%" || x === "+" || x === "-" || x === ".")) {
+                    document.getElementById("textBox").value = y.slice(0, p - 1);
+
+                }
+
+            }
+        }
+
+        function clr() {
+            document.getElementById("textBox").value = "";
+        }
+
+        function backSpace() {
+            bakSpa = document.getElementById("textBox").value;
+            if (bakSpa === "NaN" || bakSpa === "Infinity" || bakSpa === "undefined" || bakSpa === "-Infinity") {
+                document.getElementById("textBox").value = "";
+            } else {
+                var value = document.getElementById("textBox").value; `enter code here`
+                document.getElementById("textBox").value = value.substr(0, value.length - 1);
+            }
+
+        }
+
+        function result() {
+            exp = "";
+            exp = document.getElementById("textBox").value;
+            l = exp.length;
+            if (exp[0] == '*' || exp[0] == '/' || exp[0] == '%' || exp[0] == '+' || exp[l - 1] == '+' || exp[l - 1] == '%' || exp[l - 1] == '/' || exp[l - 1] == '*' || exp[l - 1] == '-') {
+                document.getElementById("textBox").value = 'NaN';
+            } else {
+                exp = document.getElementById("textBox").value;
+                res = eval(exp);
+                console.log(res);
+                document.getElementById("textBox").value = res;
+                if (res === undefined) {
+                    document.getElementById("textBox").value = "";
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
